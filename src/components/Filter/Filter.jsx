@@ -6,7 +6,6 @@ import { FilterWrap, Input, Text } from './Filter.styled';
 function Filter() {
   const dispatch = useDispatch();
   const filterValue = useSelector(selectFilterValue);
-  console.log(filterValue);
   
   function handleChange(e) {
     dispatch(changeFilter(e.target.value));
