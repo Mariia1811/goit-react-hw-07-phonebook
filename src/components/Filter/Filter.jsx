@@ -6,7 +6,12 @@ import { FilterWrap, Input, Text } from './Filter.styled';
 function Filter() {
   const dispatch = useDispatch();
   const filterValue = useSelector(selectFilterValue);
+  console.log(filterValue);
   
+  function handleChange(e) {
+    dispatch(changeFilter(e.target.value));
+  }
+
   return (
     <FilterWrap>
       <Text>Find contacts by name</Text>
@@ -14,7 +19,7 @@ function Filter() {
         name="filter"
         type="text"
         value={filterValue}
-        onChange={e => dispatch(changeFilter(e.target.value))}
+        onChange={handleChange}
       />
     </FilterWrap>
   );

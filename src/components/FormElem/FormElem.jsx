@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/selectContacts';
-import { addContact } from 'redux/contactSlice';
-import { nanoid } from 'nanoid';
+import { addContact } from 'redux/operations'
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { FormStyled, Input, BtnStyled } from './FormElem.styled';
@@ -17,7 +16,7 @@ function FormElem() {
 
   const handleSubmit = (values, { resetForm }) => {
     const newContact = {
-      id: nanoid(),
+      createdAt: new Date(),
       name: values.name,
       number: values.number,
     };
